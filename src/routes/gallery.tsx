@@ -28,7 +28,7 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Galerij — Sigarenmagazijn 2 Amsterdam" },
-      { name: "description", content: "Een blik in onze winkel aan de Reguliersdwarsstraat — sigaren, tabak, vapes en de sfeer van hartje Amsterdam." },
+      { name: "description", content: "Een blik in onze winkel aan de Reguliersdwarsstraat — kleurrijke vape-wand, gevulde koeling, aanstekers, souvenirs en de sfeer van hartje Amsterdam." },
       { property: "og:title", content: "Galerij — Sigarenmagazijn 2" },
       { property: "og:url", content: "/gallery" },
     ],
