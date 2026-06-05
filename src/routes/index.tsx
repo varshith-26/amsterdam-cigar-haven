@@ -201,6 +201,27 @@ function Home() {
           <div className="mt-1 text-muted-foreground">{tr("cta_call")}</div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <section className="bg-secondary">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32 grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
+            <div className="flex items-center gap-3"><span className="gold-rule" /><span className="eyebrow">{tr("faq_eyebrow")}</span></div>
+            <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05]">{tr("faq_title")}</h2>
+          </div>
+          <div className="md:col-span-7 md:col-start-6 divide-y divide-border border-t border-b border-border">
+            {[1, 2, 3, 4].map((i) => (
+              <details key={i} className="group py-6">
+                <summary className="flex cursor-pointer items-center justify-between gap-6 list-none">
+                  <span className="font-display text-xl md:text-2xl">{tr(`faq_q${i}` as keyof typeof import("@/lib/i18n").t)}</span>
+                  <span className="text-2xl text-muted-foreground transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-4 text-foreground/75 leading-relaxed max-w-xl">{tr(`faq_a${i}` as keyof typeof import("@/lib/i18n").t)}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
