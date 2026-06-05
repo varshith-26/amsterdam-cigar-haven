@@ -11,22 +11,20 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { I18nProvider } from "@/lib/i18n";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
+        <div className="eyebrow">404</div>
+        <h1 className="mt-4 font-display text-5xl">Pagina niet gevonden</h1>
+        <p className="mt-3 text-sm text-muted-foreground">Deze pagina bestaat niet of is verplaatst.</p>
+        <div className="mt-8">
+          <Link to="/" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground text-sm tracking-wide uppercase hover:bg-foreground/85 transition-colors">
+            Terug naar home
           </Link>
         </div>
       </div>
@@ -44,28 +42,16 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
-        </p>
+        <h1 className="font-display text-3xl">Er ging iets mis</h1>
+        <p className="mt-2 text-sm text-muted-foreground">Probeer het opnieuw of ga terug naar de homepage.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            onClick={() => { router.invalidate(); reset(); }}
+            className="px-5 py-2.5 bg-primary text-primary-foreground text-sm uppercase tracking-wide"
           >
-            Try again
+            Probeer opnieuw
           </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
-          </a>
+          <a href="/" className="px-5 py-2.5 border border-border text-sm uppercase tracking-wide">Home</a>
         </div>
       </div>
     </div>
@@ -77,21 +63,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Sigarenmagazijn 2 — Tabakswinkel & Sigarenspecialist Amsterdam" },
+      { name: "description", content: "Premium sigaren, tabak, IQOS, vapes, aanstekers, cadeaus en souvenirs in hartje Amsterdam — Reguliersdwarsstraat 14, naast Rembrandtplein." },
+      { name: "author", content: "Sigarenmagazijn 2" },
+      { property: "og:title", content: "Sigarenmagazijn 2 — Tabakswinkel Amsterdam" },
+      { property: "og:description", content: "Sigaren, tabak en kleine luxes in hartje Amsterdam. Sinds jaar en dag aan de Reguliersdwarsstraat." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "Sigarenmagazijn 2" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" },
     ],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "TobaccoShop",
+        name: "Sigarenmagazijn 2 Het Bommetje",
+        image: "https://lh3.googleusercontent.com/QB9WUxUWsRmjVGOxekiAP1wXjNkQr7h_VVbA8VC3Ys0nnf-JC3DAWJDz4BLe3AeLv9dOdF6z4TMKhcFm_Q=s0",
+        telephone: "+31687303081",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Reguliersdwarsstraat 14",
+          addressLocality: "Amsterdam",
+          postalCode: "1017 BM",
+          addressCountry: "NL",
+        },
+        openingHours: "Mo-Su 11:00-22:00",
+        priceRange: "€€",
+      }),
+    }],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -101,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="nl">
       <head>
         <HeadContent />
       </head>
@@ -118,8 +123,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <I18nProvider>
+        <SiteHeader />
+        <main className="min-h-screen">
+          <Outlet />
+        </main>
+        <SiteFooter />
+      </I18nProvider>
     </QueryClientProvider>
   );
 }
