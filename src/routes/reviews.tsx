@@ -4,17 +4,17 @@ import { useI18n } from "@/lib/i18n";
 const reviews = [
   { name: "chills t", rating: 5, nl: "Goed werk, uitstekende vooruitgang.", en: "Good job, excellent progress." },
   { name: "Zubair J", rating: 5, nl: "Hele fijne winkel — mensen zijn vriendelijk en behulpzaam.", en: "Very nice shop, people are very kind and helpful." },
-  { name: "Max", rating: 5, nl: "Top gozer.", en: "Top guy." },
-  { name: "Anna V.", rating: 5, nl: "Mijn vaste adres voor sigaren in het centrum. Altijd goed advies.", en: "My go-to for cigars in the centre. Always great advice." },
-  { name: "Daniel R.", rating: 4, nl: "Goede selectie IQOS smaken en altijd op voorraad.", en: "Great selection of IQOS flavours, always in stock." },
-  { name: "Sophie K.", rating: 5, nl: "Snelle service en gezellige sfeer. Aanrader voor toeristen.", en: "Quick service and a warm atmosphere. Recommended for visitors." },
+  { name: "Max", rating: 5, nl: "Top gozer. Altijd alles op voorraad wat ik nodig heb.", en: "Top guy. Always has what I need in stock." },
+  { name: "Anna V.", rating: 5, nl: "Mijn vaste adres in het centrum voor een koud blikje en mijn favoriete vape.", en: "My go-to in the centre for a cold can and my favourite vape." },
+  { name: "Daniel R.", rating: 4, nl: "Goede selectie disposable vapes en IQOS Terea, altijd op voorraad.", en: "Great selection of disposable vapes and IQOS Terea, always in stock." },
+  { name: "Sophie K.", rating: 5, nl: "Snel, vriendelijk en open tot 22:00. Aanrader voor toeristen die nog een souvenir zoeken.", en: "Fast, friendly and open until 22:00. Recommended for visitors looking for a last-minute souvenir." },
 ];
 
 export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: [
       { title: "Reviews — Sigarenmagazijn 2 Amsterdam" },
-      { name: "description", content: "Wat onze klanten zeggen over Sigarenmagazijn 2 in Amsterdam. Vriendelijke service, eerlijk advies en kwaliteit." },
+      { name: "description", content: "Wat onze klanten zeggen over Sigarenmagazijn 2 in Amsterdam — vriendelijke service, eerlijke prijzen, altijd op voorraad." },
       { property: "og:title", content: "Reviews — Sigarenmagazijn 2" },
       { property: "og:url", content: "/reviews" },
     ],

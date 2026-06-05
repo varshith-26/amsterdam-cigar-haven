@@ -1,41 +1,53 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
-import amsterdamImg from "@/assets/amsterdam.jpg";
-import cigarImg from "@/assets/cigar.jpg";
+import drinksImg from "@/assets/drinks-snacks.jpg";
+import vapesImg from "@/assets/shop-exterior.jpg";
 import accessoriesImg from "@/assets/accessories.jpg";
+import souvenirsImg from "@/assets/souvenirs.jpg";
 
 const posts = [
   {
-    slug: "amsterdam-te-voet",
-    img: amsterdamImg,
-    date: "11 mei 2026",
-    cat: { nl: "Stadsgids", en: "City guide" },
-    title: { nl: "Amsterdam te voet — en altijd voorbereid op pad.", en: "Exploring Amsterdam on foot — always ready to go." },
+    slug: "alles-onder-een-dak",
+    img: vapesImg,
+    date: "5 juni 2026",
+    cat: { nl: "De winkel", en: "The shop" },
+    title: { nl: "Honderden vapes, een hele wand aanstekers en alles ertussenin.", en: "Hundreds of vapes, a whole wall of lighters, and everything in between." },
     excerpt: {
-      nl: "De stad lopend ontdekken is de mooiste manier om Amsterdam te beleven. Wij vertellen welke essentials u onderweg niet wilt missen — van een goede aansteker tot uw favoriete smaak.",
-      en: "Exploring on foot is the best way to soak up Amsterdam. Here's what to keep in your pocket on the way — from a reliable lighter to your favourite flavour.",
+      nl: "Van disposable vapes in elke smaak tot Bic, Clipper en Zippo aanstekers in alle kleuren — een rondleiding door de meest gevulde planken van Reguliersdwarsstraat 14.",
+      en: "From disposable vapes in every flavour to Bic, Clipper and Zippo lighters in every colour — a tour of the most stocked shelves on Reguliersdwarsstraat 14.",
     },
   },
   {
-    slug: "perfecte-metgezel",
-    img: cigarImg,
-    date: "11 mei 2026",
-    cat: { nl: "Sigaren", en: "Cigars" },
-    title: { nl: "De perfecte metgezel voor een wandeling door het centrum.", en: "The perfect companion for a stroll through central Amsterdam." },
+    slug: "ijskoud-uit-de-koeling",
+    img: drinksImg,
+    date: "28 mei 2026",
+    cat: { nl: "Frisdrank & Energy", en: "Drinks & Energy" },
+    title: { nl: "IJskoud uit de koeling: Coca-Cola, Red Bull, Monster en meer.", en: "Ice-cold from the fridge: Coca-Cola, Red Bull, Monster and more." },
     excerpt: {
-      nl: "Of u nu langs de grachten loopt of een terras opzoekt op het Rembrandtplein — een goede sigaar maakt het moment compleet. Onze selectie en aanbevelingen.",
-      en: "Whether you're walking the canals or settling onto a terrace at Rembrandtplein, the right cigar completes the moment. Our picks and recommendations.",
+      nl: "Even snel een blikje pakken voor onderweg? Onze koeling staat vol met klassiekers en energy drinks — pinnen kan altijd, ook voor één blikje.",
+      en: "Grabbing a cold can for the road? Our fridge is packed with classics and energy drinks — card payments welcome, even for a single can.",
     },
   },
   {
-    slug: "iqos-iluma-amsterdam",
+    slug: "souvenirs-amsterdam",
+    img: souvenirsImg,
+    date: "20 mei 2026",
+    cat: { nl: "Souvenirs", en: "Souvenirs" },
+    title: { nl: "Amsterdamse souvenirs zonder de toeristenprijs.", en: "Amsterdam souvenirs without the tourist mark-up." },
+    excerpt: {
+      nl: "Delftsblauwe borden, klompen, miniatuur grachtenpandjes, magneten en ansichtkaarten — een eerlijke prijs op een steenworp van Rembrandtplein.",
+      en: "Delft blue plates, clogs, miniature canal houses, magnets and postcards — fair prices a stone's throw from Rembrandtplein.",
+    },
+  },
+  {
+    slug: "rookwaren-en-accessoires",
     img: accessoriesImg,
-    date: "11 mei 2026",
-    cat: { nl: "IQOS", en: "IQOS" },
-    title: { nl: "IQOS Iluma sticks in hartje Amsterdam — altijd op voorraad.", en: "IQOS Iluma sticks in central Amsterdam — always in stock." },
+    date: "12 mei 2026",
+    cat: { nl: "Rookwaren", en: "Smoking essentials" },
+    title: { nl: "RAW, OCB, Clipper, Zippo — alles voor de roker.", en: "RAW, OCB, Clipper, Zippo — everything for the smoker." },
     excerpt: {
-      nl: "Bijna door uw favoriete tabak of Iluma sticks heen? Wij hebben u gedekt — middenin Amsterdam Centrum, zeven dagen per week tot 22:00.",
-      en: "Running low on your favourite tobacco or Iluma sticks? We've got you — right in central Amsterdam, seven days a week until 22:00.",
+      nl: "Vloei, filters, grinders, asbakken en aanstekers in elke maat en kleur. Tot 22:00 's avonds, ook als u even iets vergeten bent.",
+      en: "Papers, filters, grinders, ashtrays and lighters in every size and colour. Open until 22:00 — handy when you've forgotten something.",
     },
   },
 ];
