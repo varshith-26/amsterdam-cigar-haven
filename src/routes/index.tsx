@@ -1,17 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
-import heroShop from "@/assets/hero-shop.jpg";
-import cigarImg from "@/assets/cigar.jpg";
+import heroShop from "@/assets/store-interior.jpg";
+import souvenirsImg from "@/assets/souvenirs.jpg";
 import amsterdamImg from "@/assets/amsterdam.jpg";
 import accessoriesImg from "@/assets/accessories.jpg";
+import drinksImg from "@/assets/drinks-snacks.jpg";
+import shopExterior from "@/assets/shop-exterior.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sigarenmagazijn 2 — Premium sigaren & tabak in Amsterdam" },
-      { name: "description", content: "Tabakswinkel en sigarenspecialist aan de Reguliersdwarsstraat 14, naast Rembrandtplein. Premium sigaren, IQOS, vapes, cadeaus en souvenirs." },
+      { title: "Sigarenmagazijn 2 — Buurtwinkel & souvenirs in Amsterdam" },
+      { name: "description", content: "Buurtwinkel aan de Reguliersdwarsstraat 14, naast Rembrandtplein. Frisdrank, snacks, souvenirs, wenskaarten, cadeaus en reisbenodigdheden in hartje Amsterdam." },
       { property: "og:title", content: "Sigarenmagazijn 2 — Het Bommetje Amsterdam" },
-      { property: "og:description", content: "Sigaren, tabak en kleine luxes in hartje Amsterdam." },
+      { property: "og:description", content: "Uw dagelijkse winkel in hartje Amsterdam — souvenirs, snacks, cadeaus en gemak." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -23,15 +25,15 @@ function Home() {
   const { tr } = useI18n();
 
   const cats = [
-    { k: "cat_cigars", d: "cat_cigars_d", img: cigarImg },
+    { k: "cat_souvenirs", d: "cat_souvenirs_d", img: souvenirsImg },
+    { k: "cat_drinks", d: "cat_drinks_d", img: drinksImg },
+    { k: "cat_gifts", d: "cat_gifts_d", img: souvenirsImg },
+    { k: "cat_cards", d: "cat_cards_d", img: souvenirsImg },
+    { k: "cat_travel", d: "cat_travel_d", img: shopExterior },
+    { k: "cat_convenience", d: "cat_convenience_d", img: accessoriesImg },
+    { k: "cat_cigars", d: "cat_cigars_d", img: accessoriesImg },
     { k: "cat_iqos", d: "cat_iqos_d", img: heroShop },
     { k: "cat_access", d: "cat_access_d", img: accessoriesImg },
-    { k: "cat_drinks", d: "cat_drinks_d", img: accessoriesImg },
-    { k: "cat_gifts", d: "cat_gifts_d", img: amsterdamImg },
-    { k: "cat_cards", d: "cat_cards_d", img: accessoriesImg },
-    { k: "cat_souvenirs", d: "cat_souvenirs_d", img: amsterdamImg },
-    { k: "cat_convenience", d: "cat_convenience_d", img: accessoriesImg },
-    { k: "cat_travel", d: "cat_travel_d", img: amsterdamImg },
   ] as const;
 
   return (
@@ -109,20 +111,20 @@ function Home() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className="relative aspect-[4/5] overflow-hidden">
-            <img src={cigarImg} alt="Premium sigaar" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+            <img src={souvenirsImg} alt="Amsterdam souvenirs en wenskaarten" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
           </div>
           <div>
             <div className="flex items-center gap-3">
               <span className="gold-rule" />
-              <span className="eyebrow">Selectie</span>
+              <span className="eyebrow">{tr("feature_eyebrow")}</span>
             </div>
-            <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05]">Voor de liefhebber van het mooie kleine moment.</h2>
+            <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05]">{tr("feature_title")}</h2>
             <p className="mt-6 text-foreground/75 leading-relaxed">
-              Een goede sigaar vraagt om geduld, kennis en de juiste raad. Onze humidor wordt zorgvuldig bijgehouden — van een rustige Dominicaan tot een vol-gerijpte Cubaan. Loop binnen, vraag advies, en neem rustig de tijd.
+              {tr("feature_body")}
             </p>
             <div className="mt-8">
               <Link to="/gallery" className="inline-flex items-center text-sm uppercase tracking-[0.2em] link-underline">
-                Bekijk de galerij →
+                {tr("feature_link")} →
               </Link>
             </div>
           </div>

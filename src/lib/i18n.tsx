@@ -15,12 +15,18 @@ export const t: Dict = {
   cta_directions: { nl: "Routebeschrijving", en: "Get directions" },
 
   hero_eyebrow: { nl: "Uw buurtwinkel in hartje Amsterdam", en: "Your neighbourhood shop in central Amsterdam" },
-  hero_title: { nl: "Tabak, gemak en kleine cadeaus — alles onder één dak.", en: "Tobacco, convenience and gifts — all under one roof." },
-  hero_sub: { nl: "Sigarenmagazijn 2 'Het Bommetje' aan de Reguliersdwarsstraat is dé buurtwinkel naast Rembrandtplein. Sigaren, sigaretten, IQOS, vapes, frisdrank, snacks, souvenirs en wenskaarten — dagelijks geopend van 11:00 tot 22:00.", en: "Sigarenmagazijn 2 'Het Bommetje' on Reguliersdwarsstraat is the trusted corner shop next to Rembrandtplein. Cigars, cigarettes, IQOS, vapes, cold drinks, snacks, souvenirs and greeting cards — open daily from 11:00 to 22:00." },
+  hero_title: { nl: "Uw dagelijkse winkel naast Rembrandtplein.", en: "Your everyday shop next to Rembrandtplein." },
+  hero_sub: { nl: "Sigarenmagazijn 2 'Het Bommetje' aan de Reguliersdwarsstraat is dé buurtwinkel met alles voor onderweg: frisdrank, snacks, souvenirs, wenskaarten, cadeautjes, reisbenodigdheden en meer. Dagelijks geopend van 11:00 tot 22:00.", en: "Sigarenmagazijn 2 'Het Bommetje' on Reguliersdwarsstraat is the trusted corner shop for everything you need on the go: cold drinks, snacks, souvenirs, greeting cards, gifts, travel essentials and more. Open daily from 11:00 to 22:00." },
 
   intro_eyebrow: { nl: "De winkel", en: "The shop" },
-  intro_title: { nl: "Een buurtwinkel met een verrassend brede selectie.", en: "A neighbourhood shop with a surprisingly broad selection." },
-  intro_body: { nl: "Op een steenworp van Rembrandtplein, Leidseplein en de grachten vindt u alles voor onderweg én voor thuis. Van premium sigaren en IQOS Terea tot koude blikjes, snacks, reisbenodigdheden, Amsterdamse souvenirs, wenskaarten en cadeauartikelen. Snel, vriendelijk en eerlijk — voor buurtbewoners, kantoormedewerkers én bezoekers van de stad.", en: "A stone's throw from Rembrandtplein, Leidseplein and the canals, you'll find everything for on the go and at home. From premium cigars and IQOS Terea to cold drinks, snacks, travel essentials, Amsterdam souvenirs, greeting cards and gifts. Fast, friendly and honest — for locals, office workers and visitors alike." },
+  intro_title: { nl: "Een Amsterdamse winkel voor alles van alledag.", en: "An Amsterdam shop for everything everyday." },
+  intro_body: { nl: "Op een steenworp van Rembrandtplein, Leidseplein en de grachten vindt u alles voor onderweg én voor thuis. Van koude blikjes en snacks tot reisbenodigdheden, Amsterdamse souvenirs, wenskaarten en cadeauartikelen. Snel, vriendelijk en eerlijk — voor buurtbewoners, kantoormedewerkers én bezoekers van de stad.", en: "A stone's throw from Rembrandtplein, Leidseplein and the canals, you'll find everything for on the go and at home. From cold cans and snacks to travel essentials, Amsterdam souvenirs, greeting cards and gifts. Fast, friendly and honest — for locals, office workers and visitors alike." },
+
+  feature_eyebrow: { nl: "Souvenirs & cadeaus", en: "Souvenirs & gifts" },
+  feature_title: { nl: "Een stukje Amsterdam om mee naar huis te nemen.", en: "A piece of Amsterdam to take home." },
+  feature_body: { nl: "Van klassieke Delftsblauwe souvenirs en magneten tot ansichtkaarten, wenskaarten en kleine cadeautjes voor elke gelegenheid. Loop binnen, kijk rond en laat u verrassen.", en: "From classic Delft blue souvenirs and magnets to postcards, greeting cards and small gifts for every occasion. Step in, browse, and let yourself be surprised." },
+  feature_link: { nl: "Bekijk de galerij", en: "View the gallery" },
+
 
   cats_eyebrow: { nl: "Ons assortiment", en: "Our range" },
   cats_title: { nl: "Veel meer dan alleen tabak.", en: "Much more than just tobacco." },
