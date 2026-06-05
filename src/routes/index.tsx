@@ -24,11 +24,14 @@ function Home() {
 
   const cats = [
     { k: "cat_cigars", d: "cat_cigars_d", img: cigarImg },
-    { k: "cat_tobacco", d: "cat_tobacco_d", img: accessoriesImg },
     { k: "cat_iqos", d: "cat_iqos_d", img: heroShop },
-    { k: "cat_vape", d: "cat_vape_d", img: amsterdamImg },
-    { k: "cat_lighters", d: "cat_lighters_d", img: accessoriesImg },
+    { k: "cat_access", d: "cat_access_d", img: accessoriesImg },
+    { k: "cat_drinks", d: "cat_drinks_d", img: accessoriesImg },
     { k: "cat_gifts", d: "cat_gifts_d", img: amsterdamImg },
+    { k: "cat_cards", d: "cat_cards_d", img: accessoriesImg },
+    { k: "cat_souvenirs", d: "cat_souvenirs_d", img: amsterdamImg },
+    { k: "cat_convenience", d: "cat_convenience_d", img: accessoriesImg },
+    { k: "cat_travel", d: "cat_travel_d", img: amsterdamImg },
   ] as const;
 
   return (
