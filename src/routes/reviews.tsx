@@ -14,7 +14,7 @@ export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: [
       { title: "Reviews — Sigarenmagazijn 2 Amsterdam" },
-      { name: "description", content: "Wat onze klanten zeggen over Sigarenmagazijn 2 in Amsterdam. Vriendelijke service, eerlijk advies en kwaliteit." },
+      { name: "description", content: "Wat onze klanten zeggen over Sigarenmagazijn 2 in Amsterdam — vriendelijke service, eerlijke prijzen, altijd op voorraad." },
       { property: "og:title", content: "Reviews — Sigarenmagazijn 2" },
       { property: "og:url", content: "/reviews" },
     ],
