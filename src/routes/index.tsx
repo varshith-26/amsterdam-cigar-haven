@@ -25,15 +25,15 @@ function Home() {
   const { tr } = useI18n();
 
   const cats = [
-    { k: "cat_souvenirs", d: "cat_souvenirs_d", img: souvenirsImg },
     { k: "cat_drinks", d: "cat_drinks_d", img: drinksImg },
-    { k: "cat_gifts", d: "cat_gifts_d", img: souvenirsImg },
-    { k: "cat_cards", d: "cat_cards_d", img: souvenirsImg },
-    { k: "cat_travel", d: "cat_travel_d", img: shopExterior },
-    { k: "cat_convenience", d: "cat_convenience_d", img: accessoriesImg },
-    { k: "cat_cigars", d: "cat_cigars_d", img: accessoriesImg },
-    { k: "cat_iqos", d: "cat_iqos_d", img: heroShop },
+    { k: "cat_iqos", d: "cat_iqos_d", img: shopExterior },
     { k: "cat_access", d: "cat_access_d", img: accessoriesImg },
+    { k: "cat_souvenirs", d: "cat_souvenirs_d", img: souvenirsImg },
+    { k: "cat_snacks", d: "cat_snacks_d", img: drinksImg },
+    { k: "cat_cigars", d: "cat_cigars_d", img: heroShop },
+    { k: "cat_truffles", d: "cat_truffles_d", img: shopExterior },
+    { k: "cat_gifts", d: "cat_gifts_d", img: souvenirsImg },
+    { k: "cat_travel", d: "cat_travel_d", img: accessoriesImg },
   ] as const;
 
   return (
