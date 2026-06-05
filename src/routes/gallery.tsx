@@ -48,8 +48,8 @@ function GalleryPage() {
         </h1>
         <p className="mt-6 max-w-xl text-foreground/70">
           {lang === "nl"
-            ? "Sfeerbeelden van Sigarenmagazijn 2, de Reguliersdwarsstraat en de producten die u bij ons vindt."
-            : "Atmosphere from Sigarenmagazijn 2, the Reguliersdwarsstraat and the products we carry."}
+            ? "Sfeerbeelden van Sigarenmagazijn 2: kleurrijke vape-wanden, een gevulde koeling, honderden aanstekers, Amsterdamse souvenirs en het straatbeeld van de Reguliersdwarsstraat."
+            : "A look at Sigarenmagazijn 2: colourful vape walls, a fully stocked fridge, hundreds of lighters, Amsterdam souvenirs and the Reguliersdwarsstraat outside our door."}
         </p>
       </section>
 
