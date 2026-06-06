@@ -2,9 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
 
 const reviews = [
-  { name: "chills t", rating: 5, nl: "Goed werk, uitstekende vooruitgang.", en: "Good job, excellent progress." },
+  { name: "Max", rating: 5, nl: "Top gozer.", en: "Top guy." },
   { name: "Zubair J", rating: 5, nl: "Hele fijne winkel — mensen zijn vriendelijk en behulpzaam.", en: "Very nice shop, people are very kind and helpful." },
-  { name: "Max", rating: 5, nl: "Top gozer. Altijd alles op voorraad wat ik nodig heb.", en: "Top guy. Always has what I need in stock." },
+  { name: "chills t", rating: 5, nl: "Goed werk, uitstekende vooruitgang.", en: "Good job, excellent progress." },
+  { name: "GC M", rating: 5, nl: "Geweldige man achter de toonbank!", en: "Great guy behind the counter!" },
+  { name: "Папуша Е", rating: 5, nl: "Leuke winkel, heel aardig personeel en lieve eigenaren.", en: "Nice store, and very nice staff, and cute owners." },
+  { name: "Sami U", rating: 5, nl: "Gewaardeerd. Mensen van de winkel zijn erg vriendelijk.", en: "Appreciated. People of shop are very kind." },
+  { name: "Rifat H", rating: 5, nl: "Alles wat je nodig hebt, ze hebben het!", en: "Everything you need, they got you!" },
+  { name: "kiran z", rating: 5, nl: "Leuke winkel.", en: "Nice shop." },
+  { name: "Saad A", rating: 5, nl: "Geweldige vent! Alle essentials zijn verkrijgbaar.", en: "Great guy! Every essential available." },
   { name: "Anna V.", rating: 5, nl: "Mijn vaste adres in het centrum voor een koud blikje en mijn favoriete vape.", en: "My go-to in the centre for a cold can and my favourite vape." },
   { name: "Daniel R.", rating: 4, nl: "Goede selectie disposable vapes en IQOS Terea, altijd op voorraad.", en: "Great selection of disposable vapes and IQOS Terea, always in stock." },
   { name: "Sophie K.", rating: 5, nl: "Snel, vriendelijk en open tot 22:00. Aanrader voor toeristen die nog een souvenir zoeken.", en: "Fast, friendly and open until 22:00. Recommended for visitors looking for a last-minute souvenir." },
