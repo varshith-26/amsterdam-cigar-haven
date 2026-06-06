@@ -65,7 +65,7 @@ function BlogPostPage() {
 
         <section className="mx-auto max-w-3xl px-6 py-16 md:py-20">
           <div className="space-y-6 text-foreground/85 leading-relaxed text-lg">
-            {post.body[lang].map((p, i) => (
+            {post.body[lang].map((p: string, i: number) => (
               <p key={i}>{p}</p>
             ))}
           </div>
