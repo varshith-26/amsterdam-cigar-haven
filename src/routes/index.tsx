@@ -142,20 +142,23 @@ function Home() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {cats.map((c) => (
-            <div key={c.k} className="group relative bg-background p-8 md:p-10 h-72 flex flex-col justify-between overflow-hidden">
+            <div key={c.k} className="group relative bg-background h-80 overflow-hidden">
               <img
                 src={c.img}
                 alt=""
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-20 transition-opacity duration-700"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
-              <div className="relative">
-                <div className="font-display text-2xl md:text-3xl">{tr(c.k as keyof typeof import("@/lib/i18n").t)}</div>
-                <p className="mt-3 text-sm text-muted-foreground max-w-xs">{tr(c.d as keyof typeof import("@/lib/i18n").t)}</p>
-              </div>
-              <div className="relative flex items-center justify-between">
-                <span className="text-xs uppercase tracking-widest text-muted-foreground">In winkel</span>
-                <span className="text-2xl transition-transform group-hover:translate-x-1">→</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 transition-colors duration-500 group-hover:from-black/85" />
+              <div className="relative h-full p-8 md:p-10 flex flex-col justify-between text-white">
+                <div>
+                  <div className="font-display text-2xl md:text-3xl font-medium drop-shadow-md">{tr(c.k as keyof typeof import("@/lib/i18n").t)}</div>
+                  <p className="mt-3 text-sm text-white/85 max-w-xs drop-shadow">{tr(c.d as keyof typeof import("@/lib/i18n").t)}</p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs uppercase tracking-widest text-white/80">In winkel</span>
+                  <span className="text-2xl transition-transform group-hover:translate-x-1">→</span>
+                </div>
               </div>
             </div>
           ))}
