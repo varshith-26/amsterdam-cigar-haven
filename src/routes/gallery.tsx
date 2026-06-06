@@ -1,26 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
-import heroShop from "@/assets/hero-shop.jpg";
-import storeInterior from "@/assets/store-interior.jpg";
-import drinks from "@/assets/drinks-snacks.jpg";
-import souvenirs from "@/assets/souvenirs.jpg";
-import accessories from "@/assets/accessories.jpg";
-import vapesWall from "@/assets/shop-exterior.jpg";
+import p0 from "@/assets/gallery/download.jpg.asset.json";
+import p1 from "@/assets/gallery/download_1.jpg.asset.json";
+import p2 from "@/assets/gallery/download_2.jpg.asset.json";
+import p3 from "@/assets/gallery/download_3.jpg.asset.json";
+import p4 from "@/assets/gallery/download_4.jpg.asset.json";
+import p5 from "@/assets/gallery/download_5.jpg.asset.json";
+import p6 from "@/assets/gallery/download_6.jpg.asset.json";
+import p7 from "@/assets/gallery/download_7.jpg.asset.json";
+import p8 from "@/assets/gallery/download_8.jpg.asset.json";
+import sign from "@/assets/gallery/2026-05-07.jpg.asset.json";
 
-const photos = [
-  storeInterior,
-  vapesWall,
-  drinks,
-  accessories,
-  souvenirs,
-  heroShop,
-  "https://lh3.googleusercontent.com/QB9WUxUWsRmjVGOxekiAP1wXjNkQr7h_VVbA8VC3Ys0nnf-JC3DAWJDz4BLe3AeLv9dOdF6z4TMKhcFm_Q=s1200",
-  "https://lh3.googleusercontent.com/IW-ru8sRi9hxNTCVvLzeOeFPL6xcSdJ5joGy7OsiRghhxSLpWPHXPRw5AV_9ivFF3jdzEpnuNeaQEQXszA=s1200",
-  "https://lh3.googleusercontent.com/fbEDcyCxCChc41rTTMTsOxN58RJP5dwv3IwK_L-PBSNYHBTl7vFrrVM5Em8wQo4ppvO1NNpqg6NNwTAycw=s1200",
-  "https://lh3.googleusercontent.com/2hMPvt6HbmE0qftbk9jVT1SABSidcWJSSZZAo3PzQeuNDmJRj3nELkzd4op2PQE3LH9W5GJSohvQpnPECQ=s1200",
-  "https://lh3.googleusercontent.com/oAbtWqZXGMBnX5GfHmNE2PwPHo1jjj437EDxLTXzHaf6RQxXD-RHO57ccKYIzY91elfWoUFxhNqG-uG-=s1200",
-  "https://lh3.googleusercontent.com/wTQxMv38aeRrs3MRAwm65D1k0VQQggLRbI3keMvBki6haiz_3hqGcPNG9KbVcUTQgLoTZzUFuLUh3SMG=s1200",
-];
+const photos = [sign.url, p0.url, p1.url, p2.url, p3.url, p4.url, p5.url, p6.url, p7.url, p8.url];
 
 const aspects = ["aspect-[4/5]", "aspect-square", "aspect-[3/4]", "aspect-[4/5]", "aspect-square", "aspect-[3/4]"];
 
