@@ -10,8 +10,21 @@ import p6 from "@/assets/gallery/download_6.jpg.asset.json";
 import p7 from "@/assets/gallery/download_7.jpg.asset.json";
 import p8 from "@/assets/gallery/download_8.jpg.asset.json";
 import sign from "@/assets/gallery/2026-05-07.jpg.asset.json";
+import s11 from "@/assets/gallery/shop_11.jpg.asset.json";
+import s12 from "@/assets/gallery/shop_12.jpg.asset.json";
+import s13 from "@/assets/gallery/shop_13.jpg.asset.json";
+import s14 from "@/assets/gallery/shop_14.jpg.asset.json";
+import s15 from "@/assets/gallery/shop_15.jpg.asset.json";
+import s16 from "@/assets/gallery/shop_16.jpg.asset.json";
+import s17 from "@/assets/gallery/shop_17.jpg.asset.json";
+import s18 from "@/assets/gallery/shop_18.jpg.asset.json";
+import s19 from "@/assets/gallery/shop_19.jpg.asset.json";
+import s20 from "@/assets/gallery/shop_20.jpg.asset.json";
 
-const photos = [sign.url, p0.url, p1.url, p2.url, p3.url, p4.url, p5.url, p6.url, p7.url, p8.url];
+const photos = [
+  s11.url, s12.url, s20.url, s19.url, s18.url, s17.url, s16.url, s15.url, s14.url, s13.url,
+  sign.url, p0.url, p1.url, p2.url, p3.url, p4.url, p5.url, p6.url, p7.url, p8.url,
+];
 
 const aspects = ["aspect-[4/5]", "aspect-square", "aspect-[3/4]", "aspect-[4/5]", "aspect-square", "aspect-[3/4]"];
 
