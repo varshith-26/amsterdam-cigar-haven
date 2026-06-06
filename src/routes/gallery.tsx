@@ -21,8 +21,16 @@ import s18 from "@/assets/gallery/shop_18.jpg.asset.json";
 import s19 from "@/assets/gallery/shop_19.jpg.asset.json";
 import s20 from "@/assets/gallery/shop_20.jpg.asset.json";
 
+import s23 from "@/assets/gallery/shop_23.jpg.asset.json";
+import s24 from "@/assets/gallery/shop_24.jpg.asset.json";
+import sa from "@/assets/gallery/shop_a.jpg.asset.json";
+import sb from "@/assets/gallery/shop_b.jpg.asset.json";
+import sc from "@/assets/gallery/shop_c.jpg.asset.json";
+import sd from "@/assets/gallery/shop_d.jpg.asset.json";
+
 const photos = [
   s11.url, s12.url, s20.url, s19.url, s18.url, s17.url, s16.url, s15.url, s14.url, s13.url,
+  s23.url, s24.url, sa.url, sb.url, sc.url, sd.url,
   sign.url, p0.url, p1.url, p2.url, p3.url, p4.url, p5.url, p6.url, p7.url, p8.url,
 ];
 
