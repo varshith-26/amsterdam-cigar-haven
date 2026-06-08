@@ -124,6 +124,40 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let observer: IntersectionObserver | null = null;
+    const attach = () => {
+      observer?.disconnect();
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer?.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+      );
+      const targets = document.querySelectorAll(
+        "main section, main .reveal, main article > *, main .grid > *"
+      );
+      targets.forEach((el) => {
+        if (!el.classList.contains("is-visible")) {
+          el.classList.add("reveal");
+          observer!.observe(el);
+        }
+      });
+    };
+    attach();
+    const unsub = router.subscribe("onResolved", () => {
+      setTimeout(attach, 50);
+    });
+    return () => { observer?.disconnect(); unsub(); };
+  }, [router]);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -137,3 +171,4 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
+
