@@ -124,3 +124,26 @@
   transition: transform .4s cubic-bezier(.2,.7,.2,1);
 }
 .link-underline:hover::after { transform: scaleX(1); transform-origin: left; }
+
+/* Site-wide scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 0.9s cubic-bezier(.2,.7,.2,1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image hover zoom helper */
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform 0.8s cubic-bezier(.2,.7,.2,1); }
+.img-zoom:hover img { transform: scale(1.06); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .fade-up, .fade-up-d1, .fade-up-d2, .fade-up-d3 { animation: none !important; }
+}
+
