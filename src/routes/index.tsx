@@ -29,11 +29,8 @@ function Home() {
     { k: "cat_iqos", d: "cat_iqos_d", img: shopExterior },
     { k: "cat_access", d: "cat_access_d", img: accessoriesImg },
     { k: "cat_souvenirs", d: "cat_souvenirs_d", img: souvenirsImg },
-    { k: "cat_snacks", d: "cat_snacks_d", img: drinksImg },
     { k: "cat_cigars", d: "cat_cigars_d", img: heroShop },
-    { k: "cat_truffles", d: "cat_truffles_d", img: shopExterior },
-    { k: "cat_gifts", d: "cat_gifts_d", img: souvenirsImg },
-    { k: "cat_travel", d: "cat_travel_d", img: accessoriesImg },
+    { k: "cat_snacks", d: "cat_snacks_d", img: amsterdamImg },
   ] as const;
 
   return (
