@@ -59,9 +59,12 @@ function ReviewsPage() {
       <section className="mx-auto max-w-7xl px-6 lg:px-10 pb-24 md:pb-32">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
           {reviews.map((r, i) => (
-            <article key={i} className="bg-background p-8 md:p-10 flex flex-col gap-6 min-h-[280px]">
+            <article
+              key={i}
+              className="bg-background p-8 md:p-10 flex flex-col gap-6 min-h-[280px] transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:z-10 hover:bg-secondary cursor-pointer relative group"
+            >
               <Stars n={r.rating} />
-              <p className="font-display text-2xl leading-snug flex-1">"{lang === "nl" ? r.nl : r.en}"</p>
+              <p className="font-display text-2xl leading-snug flex-1 transition-colors group-hover:text-[var(--color-gold)]">"{lang === "nl" ? r.nl : r.en}"</p>
               <div>
                 <div className="text-sm font-medium">{r.name}</div>
                 <div className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Google review</div>
