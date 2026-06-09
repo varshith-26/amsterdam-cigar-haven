@@ -9,7 +9,7 @@ export function SiteHeader() {
   const path = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -22,81 +22,68 @@ export function SiteHeader() {
     { to: "/gallery", label: tr("nav_gallery") },
     { to: "/reviews", label: tr("nav_reviews") },
     { to: "/blog", label: tr("nav_blog") },
-    { to: "/contact", label: tr("nav_contact") },
   ] as const;
 
   const toggle = (l: Lang) => setLang(l);
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-white border-b border-border ${
-        scrolled ? "shadow-sm" : ""
-      }`}
+      className="fixed top-0 inset-x-0 z-50 h-[70px] flex items-center justify-between px-6 lg:px-16 bg-white/95 backdrop-blur border-b border-border transition-shadow"
+      style={{ boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,.08)" : "none" }}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 h-16 md:h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-baseline gap-2 group">
-          <span className="font-display text-xl md:text-2xl tracking-tight">Sigarenmagazijn 2</span>
-          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Het Bommetje</span>
-        </Link>
+      <Link to="/" className="flex flex-col gap-[1px] no-underline">
+        <span className="font-display text-[17px] font-bold leading-none text-[var(--forest)]">Het Bommetje</span>
+        <span className="text-[10px] tracking-[0.18em] uppercase text-[var(--sage)]">Sigarenmagazijn 2 · Amsterdam</span>
+      </Link>
 
-        <nav className="hidden md:flex items-center gap-9">
+      <nav className="hidden lg:flex items-center gap-10">
+        {links.map((l) => (
+          <Link
+            key={l.to}
+            to={l.to}
+            className="text-[13px] tracking-[0.04em] text-[#555] hover:text-[var(--forest)] transition-colors"
+            activeProps={{ className: "text-[13px] tracking-[0.04em] text-[var(--forest)] font-medium" }}
+            activeOptions={{ exact: l.to === "/" }}
+          >
+            {l.label}
+          </Link>
+        ))}
+        <Link
+          to="/contact"
+          className="bg-[var(--forest)] hover:bg-[var(--sage)] text-white px-5 py-[9px] rounded text-[12px] tracking-[0.06em] uppercase transition-colors"
+        >
+          {tr("nav_contact")}
+        </Link>
+        <div className="flex items-center text-[11px] tracking-widest uppercase ml-2">
+          <button onClick={() => toggle("nl")} className={`px-1.5 ${lang === "nl" ? "text-[var(--forest)] font-medium" : "text-[#888]"}`}>NL</button>
+          <span className="text-border">/</span>
+          <button onClick={() => toggle("en")} className={`px-1.5 ${lang === "en" ? "text-[var(--forest)] font-medium" : "text-[#888]"}`}>EN</button>
+        </div>
+      </nav>
+
+      <button
+        className="lg:hidden flex flex-col gap-[5px] p-1.5"
+        onClick={() => setOpen((v) => !v)}
+        aria-label="Menu"
+      >
+        <span className={`block h-[1.5px] w-[22px] bg-charcoal transition-transform ${open ? "translate-y-[6.5px] rotate-45" : ""}`} />
+        <span className={`block h-[1.5px] w-[22px] bg-charcoal transition-opacity ${open ? "opacity-0" : ""}`} />
+        <span className={`block h-[1.5px] w-[22px] bg-charcoal transition-transform ${open ? "-translate-y-[6.5px] -rotate-45" : ""}`} />
+      </button>
+
+      {open && (
+        <div className="lg:hidden absolute top-[70px] left-0 right-0 bg-white border-b border-border px-6 py-6 flex flex-col gap-3">
           {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className="text-sm link-underline"
-              activeProps={{ className: "text-sm link-underline font-medium" }}
-              activeOptions={{ exact: l.to === "/" }}
-            >
+            <Link key={l.to} to={l.to} className="text-base py-2 border-b border-border" activeProps={{ className: "text-base py-2 border-b border-border font-medium text-[var(--forest)]" }} activeOptions={{ exact: l.to === "/" }}>
               {l.label}
             </Link>
           ))}
-        </nav>
-
-        <div className="flex items-center gap-4">
-          <div className="hidden md:flex items-center text-xs tracking-widest uppercase">
-            <button
-              onClick={() => toggle("nl")}
-              className={`px-2 py-1 transition-colors ${lang === "nl" ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
-              aria-label="Nederlands"
-            >
-              NL
-            </button>
-            <span className="text-border">/</span>
-            <button
-              onClick={() => toggle("en")}
-              className={`px-2 py-1 transition-colors ${lang === "en" ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
-              aria-label="English"
-            >
-              EN
-            </button>
+          <Link to="/contact" className="btn-green mt-2">{tr("nav_contact")}</Link>
+          <div className="pt-3 flex gap-3 text-xs uppercase tracking-widest">
+            <button onClick={() => toggle("nl")} className={lang === "nl" ? "font-medium" : "text-[#888]"}>NL</button>
+            <span>/</span>
+            <button onClick={() => toggle("en")} className={lang === "en" ? "font-medium" : "text-[#888]"}>EN</button>
           </div>
-          <button
-            className="md:hidden inline-flex flex-col gap-1.5 p-2"
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
-          >
-            <span className={`block h-px w-6 bg-foreground transition-transform ${open ? "translate-y-[7px] rotate-45" : ""}`} />
-            <span className={`block h-px w-6 bg-foreground transition-opacity ${open ? "opacity-0" : ""}`} />
-            <span className={`block h-px w-6 bg-foreground transition-transform ${open ? "-translate-y-[7px] -rotate-45" : ""}`} />
-          </button>
-        </div>
-      </div>
-
-      {open && (
-        <div className="md:hidden bg-background border-b border-border">
-          <nav className="px-6 py-6 flex flex-col gap-4">
-            {links.map((l) => (
-              <Link key={l.to} to={l.to} className="text-lg" activeProps={{ className: "text-lg font-medium" }} activeOptions={{ exact: l.to === "/" }}>
-                {l.label}
-              </Link>
-            ))}
-            <div className="pt-4 border-t border-border flex gap-3 text-xs uppercase tracking-widest">
-              <button onClick={() => toggle("nl")} className={lang === "nl" ? "" : "text-muted-foreground"}>NL</button>
-              <span className="text-border">/</span>
-              <button onClick={() => toggle("en")} className={lang === "en" ? "" : "text-muted-foreground"}>EN</button>
-            </div>
-          </nav>
         </div>
       )}
     </header>

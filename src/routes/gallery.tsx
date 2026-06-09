@@ -34,7 +34,7 @@ const photos = [
   sign.url, p0.url, p1.url, p2.url, p3.url, p4.url, p5.url, p6.url, p7.url, p8.url,
 ];
 
-const aspects = ["aspect-[4/5]", "aspect-square", "aspect-[3/4]", "aspect-[4/5]", "aspect-square", "aspect-[3/4]"];
+
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -66,20 +66,20 @@ function GalleryPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 lg:px-10 pb-24 md:pb-32">
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [&>*]:mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {photos.map((src, i) => (
             <a
               key={src}
               href={src}
               target="_blank"
               rel="noreferrer"
-              className={`relative block overflow-hidden ${aspects[i % aspects.length]} break-inside-avoid bg-secondary group`}
+              className="relative block overflow-hidden bg-secondary group rounded-md"
             >
               <img
                 src={src}
                 alt={`Sigarenmagazijn 2 — foto ${i + 1}`}
                 loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors" />
             </a>
