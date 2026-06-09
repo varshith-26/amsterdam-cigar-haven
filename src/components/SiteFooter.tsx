@@ -2,37 +2,18 @@ import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
 
 export function SiteFooter() {
-  const { tr, lang } = useI18n();
+  const { tr } = useI18n();
   return (
-    <footer className="mt-32 border-t border-border">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 grid gap-12 md:grid-cols-4">
-        <div className="md:col-span-2">
-          <div className="font-display text-2xl">Sigarenmagazijn 2</div>
-          <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground mt-1">Het Bommetje</div>
-          <p className="mt-6 text-sm text-muted-foreground max-w-sm leading-relaxed">{tr("footer_tag")}</p>
-        </div>
-        <div>
-          <div className="eyebrow mb-4">{tr("address_title")}</div>
-          <p className="text-sm leading-relaxed">
-            Reguliersdwarsstraat 14<br />1017 BM Amsterdam<br />Nederland
-          </p>
-        </div>
-        <div>
-          <div className="eyebrow mb-4">{tr("nav_contact")}</div>
-          <ul className="text-sm space-y-2">
-            <li><a href="tel:+31687303081" className="link-underline">+31 6 87303081</a></li>
-            <li><Link to="/contact" className="link-underline">{tr("nav_contact")}</Link></li>
-            <li><Link to="/gallery" className="link-underline">{tr("nav_gallery")}</Link></li>
-            <li><Link to="/blog" className="link-underline">{tr("nav_blog")}</Link></li>
-          </ul>
-        </div>
-      </div>
-      <div className="border-t border-border">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} Sigarenmagazijn 2. {tr("footer_rights")}</div>
-          <div>{lang === "nl" ? "Amsterdam · Reguliersdwarsstraat" : "Amsterdam · Reguliersdwarsstraat"}</div>
-        </div>
-      </div>
+    <footer className="bg-[var(--charcoal)] text-white/50 px-6 lg:px-16 py-8 flex flex-col md:flex-row justify-between items-center gap-4 flex-wrap">
+      <div className="font-display italic text-base text-white/80">Het Bommetje · Sigarenmagazijn 2</div>
+      <ul className="list-none flex gap-7 m-0 p-0 flex-wrap justify-center">
+        <li><Link to="/" className="text-white/40 hover:text-[var(--sage-light)] no-underline text-[11px] tracking-[0.08em] uppercase transition-colors">{tr("nav_home")}</Link></li>
+        <li><Link to="/gallery" className="text-white/40 hover:text-[var(--sage-light)] no-underline text-[11px] tracking-[0.08em] uppercase transition-colors">{tr("nav_gallery")}</Link></li>
+        <li><Link to="/reviews" className="text-white/40 hover:text-[var(--sage-light)] no-underline text-[11px] tracking-[0.08em] uppercase transition-colors">{tr("nav_reviews")}</Link></li>
+        <li><Link to="/blog" className="text-white/40 hover:text-[var(--sage-light)] no-underline text-[11px] tracking-[0.08em] uppercase transition-colors">{tr("nav_blog")}</Link></li>
+        <li><Link to="/contact" className="text-white/40 hover:text-[var(--sage-light)] no-underline text-[11px] tracking-[0.08em] uppercase transition-colors">{tr("nav_contact")}</Link></li>
+      </ul>
+      <div className="text-[11px]">© {new Date().getFullYear()} Sigarenmagazijn 2 · Reguliersdwarsstraat · Amsterdam</div>
     </footer>
   );
 }
