@@ -153,9 +153,14 @@ function RootComponent() {
       });
     };
     attach();
+    let lastPathname = window.location.pathname;
     const unsub = router.subscribe("onResolved", () => {
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
-      setTimeout(attach, 50);
+      const currentPathname = window.location.pathname;
+      if (currentPathname !== lastPathname) {
+        lastPathname = currentPathname;
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+        setTimeout(attach, 50);
+      }
     });
     return () => { observer?.disconnect(); unsub(); };
   }, [router]);
@@ -172,4 +177,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-
