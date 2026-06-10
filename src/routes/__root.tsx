@@ -154,6 +154,7 @@ function RootComponent() {
     };
     attach();
     const unsub = router.subscribe("onResolved", () => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
       setTimeout(attach, 50);
     });
     return () => { observer?.disconnect(); unsub(); };
