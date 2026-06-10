@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
 import { getPost, posts } from "@/lib/blog-posts";
 
@@ -31,15 +31,29 @@ export const Route = createFileRoute("/blog/$slug")({
       </Link>
     </div>
   ),
-  errorComponent: ({ error, reset }) => (
+  errorComponent: BlogPostError,
+  component: BlogPostPage,
+});
+
+function BlogPostError({ error, reset }: { error: Error; reset: () => void }) {
+  const router = useRouter();
+
+  return (
     <div className="pt-40 pb-24 mx-auto max-w-3xl px-6 text-center">
       <h1 className="font-display text-3xl">Something went wrong</h1>
       <p className="mt-3 text-sm text-muted-foreground">{error.message}</p>
-      <button onClick={reset} className="mt-6 px-5 py-2 bg-[var(--forest)] text-white text-xs uppercase tracking-widest">Retry</button>
+      <button
+        onClick={() => {
+          router.invalidate();
+          reset();
+        }}
+        className="mt-6 px-5 py-2 bg-[var(--forest)] text-white text-xs uppercase tracking-widest"
+      >
+        Retry
+      </button>
     </div>
-  ),
-  component: BlogPostPage,
-});
+  );
+}
 
 function BlogPostPage() {
   const { post } = Route.useLoaderData();
@@ -50,7 +64,7 @@ function BlogPostPage() {
     <article className="bg-white">
       {/* HERO IMAGE */}
       <section className="relative h-[55vh] md:h-[70vh] min-h-[420px] overflow-hidden bg-[var(--forest)]">
-        <img src={post.img} alt="" className="absolute inset-0 h-full w-full object-cover opacity-80" />
+        <img src={post.img} alt={post.title[lang]} className="absolute inset-0 h-full w-full object-cover opacity-80" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
         <div className="relative h-full mx-auto max-w-5xl px-6 lg:px-10 flex flex-col justify-end pb-12 md:pb-20">
           <Link
@@ -108,7 +122,7 @@ function BlogPostPage() {
             <div className="flex items-center gap-3 mb-10">
               <span className="h-px w-10 bg-[var(--gold)]" />
               <span className="text-xs uppercase tracking-[0.3em] text-[var(--sage)]">
-                {lang === "nl" ? "Meer artikelen" : "Keep reading"}
+              {lang === "nl" ? "Meer artikelen" : "Related Articles"}
               </span>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
@@ -116,22 +130,30 @@ function BlogPostPage() {
                 <Link
                   to="/blog/$slug"
                   params={{ slug: p.slug }}
+                  preload="intent"
                   key={p.slug}
                   className="group block bg-white rounded-lg overflow-hidden border border-border/60 hover:border-[var(--sage)] hover:-translate-y-1 hover:shadow-xl transition-all duration-500"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
                       src={p.img}
-                      alt=""
+                      alt={p.title[lang]}
                       loading="lazy"
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-110"
                     />
                   </div>
                   <div className="p-5">
-                    <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--sage)]">{p.cat[lang]}</div>
+                    <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--sage)]">
+                      {p.cat[lang]} · {p.date}
+                    </div>
                     <h3 className="mt-2 font-display text-lg leading-snug group-hover:text-[var(--sage)] transition-colors">
                       {p.title[lang]}
                     </h3>
+                    <p className="mt-3 text-sm text-foreground/70 line-clamp-3">{p.excerpt[lang]}</p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[var(--forest)] font-medium">
+                      {lang === "nl" ? "Lees verder" : "Read more"}
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </span>
                   </div>
                 </Link>
               ))}
