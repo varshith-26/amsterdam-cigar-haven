@@ -1,40 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
-import p0 from "@/assets/gallery/download.jpg.asset.json";
-import p1 from "@/assets/gallery/download_1.jpg.asset.json";
-import p2 from "@/assets/gallery/download_2.jpg.asset.json";
-import p3 from "@/assets/gallery/download_3.jpg.asset.json";
-import p4 from "@/assets/gallery/download_4.jpg.asset.json";
-import p5 from "@/assets/gallery/download_5.jpg.asset.json";
-import p6 from "@/assets/gallery/download_6.jpg.asset.json";
-import p7 from "@/assets/gallery/download_7.jpg.asset.json";
-import p8 from "@/assets/gallery/download_8.jpg.asset.json";
-import sign from "@/assets/gallery/2026-05-07.jpg.asset.json";
-import s11 from "@/assets/gallery/shop_11.jpg.asset.json";
-import s12 from "@/assets/gallery/shop_12.jpg.asset.json";
-import s13 from "@/assets/gallery/shop_13.jpg.asset.json";
-import s14 from "@/assets/gallery/shop_14.jpg.asset.json";
-import s15 from "@/assets/gallery/shop_15.jpg.asset.json";
-import s16 from "@/assets/gallery/shop_16.jpg.asset.json";
-import s17 from "@/assets/gallery/shop_17.jpg.asset.json";
-import s18 from "@/assets/gallery/shop_18.jpg.asset.json";
-import s19 from "@/assets/gallery/shop_19.jpg.asset.json";
-import s20 from "@/assets/gallery/shop_20.jpg.asset.json";
-
-import s23 from "@/assets/gallery/shop_23.jpg.asset.json";
-import s24 from "@/assets/gallery/shop_24.jpg.asset.json";
-import sa from "@/assets/gallery/shop_a.jpg.asset.json";
-import sb from "@/assets/gallery/shop_b.jpg.asset.json";
-import sc from "@/assets/gallery/shop_c.jpg.asset.json";
-import sd from "@/assets/gallery/shop_d.jpg.asset.json";
+import p0 from "@/assets/gallery/download.jpg";
+import p1 from "@/assets/gallery/download_1.jpg";
+import p2 from "@/assets/gallery/download_2.jpg";
+import p3 from "@/assets/gallery/download_3.jpg";
+import p4 from "@/assets/gallery/download_4.jpg";
+import p5 from "@/assets/gallery/download_5.jpg";
+import p6 from "@/assets/gallery/download_6.jpg";
+import p7 from "@/assets/gallery/download_7.jpg";
+import p8 from "@/assets/gallery/download_8.jpg";
+import sign from "@/assets/gallery/2026-05-07.jpg";
+import s11 from "@/assets/gallery/shop_11.jpg";
+import s12 from "@/assets/gallery/shop_12.jpg";
+import s13 from "@/assets/gallery/shop_13.jpg";
+import s14 from "@/assets/gallery/shop_14.jpg";
+import s15 from "@/assets/gallery/shop_15.jpg";
+import s16 from "@/assets/gallery/shop_16.jpg";
+import s17 from "@/assets/gallery/shop_17.jpg";
+import s18 from "@/assets/gallery/shop_18.jpg";
+import s19 from "@/assets/gallery/shop_19.jpg";
+import s20 from "@/assets/gallery/shop_20.jpg";
+import s23 from "@/assets/gallery/shop_23.jpg";
+import s24 from "@/assets/gallery/shop_24.jpg";
+import sa from "@/assets/gallery/shop_a.jpg";
+import sb from "@/assets/gallery/shop_b.jpg";
+import sc from "@/assets/gallery/shop_c.jpg";
+import sd from "@/assets/gallery/shop_d.jpg";
 
 const photos = [
-  s11.url, s12.url, s20.url, s19.url, s18.url, s17.url, s16.url, s15.url, s14.url, s13.url,
-  s23.url, s24.url, sa.url, sb.url, sc.url, sd.url,
-  sign.url, p0.url, p1.url, p2.url, p3.url, p4.url, p5.url, p6.url, p7.url, p8.url,
+  s11, s12, s20, s19, s18, s17, s16, s15, s14, s13,
+  s23, s24, sa, sb, sc, sd,
+  sign, p0, p1, p2, p3, p4, p5, p6, p7, p8,
 ];
-
-
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
