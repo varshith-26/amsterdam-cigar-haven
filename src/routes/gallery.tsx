@@ -1,5 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { useI18n } from "@/lib/i18n";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import { useEffect } from "react";
 import p0 from "@/assets/gallery/download.jpg";
 import p1 from "@/assets/gallery/download_1.jpg";
 import p2 from "@/assets/gallery/download_2.jpg";
@@ -48,6 +59,24 @@ export const Route = createFileRoute("/gallery")({
 
 function GalleryPage() {
   const { tr, lang } = useI18n();
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
+    const onSelect = () => setCurrent(api.selectedScrollSnap());
+    api.on("select", onSelect);
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
+  useEffect(() => {
+    if (api && openIndex !== null) api.scrollTo(openIndex, true);
+  }, [api, openIndex]);
+
   return (
     <>
       <section className="pt-32 md:pt-40 pb-12 mx-auto max-w-7xl px-6 lg:px-10">
@@ -65,12 +94,11 @@ function GalleryPage() {
       <section className="mx-auto max-w-7xl px-6 lg:px-10 pb-24 md:pb-32">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {photos.map((src, i) => (
-            <a
+            <button
               key={src}
-              href={src}
-              target="_blank"
-              rel="noreferrer"
-              className="relative block overflow-hidden bg-secondary group rounded-md"
+              type="button"
+              onClick={() => setOpenIndex(i)}
+              className="relative block overflow-hidden bg-secondary group rounded-md text-left"
             >
               <img
                 src={src}
@@ -79,10 +107,33 @@ function GalleryPage() {
                 className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors" />
-            </a>
+            </button>
           ))}
         </div>
       </section>
+
+      <Dialog open={openIndex !== null} onOpenChange={(o) => !o && setOpenIndex(null)}>
+        <DialogContent className="max-w-5xl w-[95vw] bg-background/95 border-none p-6 sm:p-10">
+          <Carousel setApi={setApi} opts={{ loop: true, startIndex: openIndex ?? 0 }} className="w-full">
+            <CarouselContent>
+              {photos.map((src, i) => (
+                <CarouselItem key={src} className="flex items-center justify-center">
+                  <img
+                    src={src}
+                    alt={`Sigarenmagazijn 2 — foto ${i + 1}`}
+                    className="max-h-[75vh] w-auto mx-auto object-contain rounded-md"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2 sm:-left-12" />
+            <CarouselNext className="right-2 sm:-right-12" />
+          </Carousel>
+          <div className="text-center text-sm text-foreground/60 mt-2">
+            {current + 1} / {photos.length}
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
